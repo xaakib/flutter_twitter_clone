@@ -127,6 +127,7 @@ class _SignupState extends State<Signup> {
     );
   }
 
+  // ignore: unused_element
   void _googleLogin() {
     var state = Provider.of<AuthState>(context, listen: false);
     if (state.isbusy) {
