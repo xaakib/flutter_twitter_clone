@@ -579,10 +579,11 @@ class _UserList extends StatelessWidget {
                         Provider.of<ComposeTweetState>(context, listen: false)
                                 .getDescription(user.userName) +
                             " ";
-                    textEditingController.selection = TextSelection.collapsed(
-                       int: textEditingController.text.length);
-                    Provider.of<ComposeTweetState>(context, listen: false)
-                        .onUserSelected();
+                    // textEditingController.selection = TextSelection.collapsed(
+
+                    //     //  offset: textEditingController.text.length);
+                    //     Provider.of<ComposeTweetState>(context, listen: false));
+                    // .onUserSelected();
                   },
                 );
               },
