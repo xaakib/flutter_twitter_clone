@@ -31,7 +31,7 @@ class _CustomProgressbarState extends State<CustomProgressbar>
   @override
   void initState() {
     _animationController = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 500));
+        TickerProvider: this, duration: const Duration(milliseconds: 500));
     _progressTween = Tween<double>(begin: widget.progress, end: widget.progress)
         .animate(_animationController);
     super.initState();
@@ -70,19 +70,16 @@ class _CustomProgressbarState extends State<CustomProgressbar>
           ),
           AnimatedBuilder(
             animation: _animationController,
-            builder: (BuildContext context,Widget child) => FractionallySizedBox(
-                  widthFactor: _progressTween.value,
-                  child: Padding(
-                    padding: widget.innerPadding,
-                    child: child
-                  ),
-                ),
-              child: Container(
-                      height: widget.height,
-                      decoration: BoxDecoration(
-                          color: widget.color,
-                          borderRadius: widget.borderRadius),
-                    ),                
+            builder: (BuildContext context, Widget child) =>
+                FractionallySizedBox(
+              widthFactor: _progressTween.value,
+              child: Padding(padding: widget.innerPadding, child: child),
+            ),
+            child: Container(
+              height: widget.height,
+              decoration: BoxDecoration(
+                  color: widget.color, borderRadius: widget.borderRadius),
+            ),
           )
         ],
       ),
